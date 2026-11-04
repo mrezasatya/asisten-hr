@@ -41,8 +41,8 @@ npm test && npm run ingest:demo -- --dry-run
 ### 2. Supabase (database)
 
 1. Daftar di https://supabase.com → **New project** (paket Free). Simpan kata sandi database.
-2. Buka **SQL Editor** → tempel isi `supabase/migrations/0001_init.sql` → **Run**.
-3. Ulangi untuk `supabase/migrations/0002_storage.sql`.
+2. Buka **SQL Editor** → **New query**. Buka file `supabase/migrations/0001_init.sql` (di editor teks atau di GitHub → tombol **Raw**), salin **seluruh isinya** (bukan nama filenya), tempel ke SQL Editor → **Run**. Hasil yang benar: *Success. No rows returned*.
+3. Ulangi dengan **isi** file `supabase/migrations/0002_storage.sql`.
 4. Buka **Project Settings → API**, salin: Project URL, `anon` key, dan `service_role` key.
 5. **Authentication → Sign In / Providers → Email**: matikan *Allow new users to sign up* (akun admin dibuat manual di Fase 4).
 
