@@ -9,7 +9,9 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
-    "docs:build": "tsx scripts/build-docx.ts"
+    "docs:build": "tsx scripts/build-docx.ts",
+    "ingest:demo": "npm run docs:build && tsx scripts/ingest-demo.ts",
+    "check:chunks": "tsx scripts/check-chunks.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
