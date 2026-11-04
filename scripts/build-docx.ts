@@ -55,9 +55,7 @@ function toParagraphs(src: DemoSource): Paragraph[] {
  * dianggap berubah oleh git. Ganti dengan tanggal berlaku dokumen agar output deterministik.
  */
 async function deterministic(buffer: Buffer, isoDate: string): Promise<Buffer> {
-  // Waktu entri zip disimpan sebagai waktu lokal → pakai tengah malam lokal agar sama di semua zona waktu.
-  const [y, m, d] = isoDate.split("-").map(Number);
-  const date = new Date(y, m - 1, d);
+  const date = new Date(`${isoDate}T00:00:00Z`); // JSZip menulis waktu entri dalam UTC
   const src = await JSZip.loadAsync(buffer);
   const out = new JSZip();
   for (const name of Object.keys(src.files).sort()) {
