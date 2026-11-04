@@ -51,7 +51,7 @@ export const DEMO_DOCS_DIR = path.join(process.cwd(), "data", "demo-docs");
 
 export function loadDemoSources(dir = DEMO_DOCS_DIR): DemoSource[] {
   return readdirSync(dir)
-    .filter((f) => f.endsWith(".md"))
+    .filter((f) => /^\d{2}-.+\.md$/.test(f)) // hanya dokumen bernomor, bukan README
     .sort()
     .map((f) => {
       const { meta, body } = parseFrontMatter(readFileSync(path.join(dir, f), "utf8"), f);
