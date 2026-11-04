@@ -67,7 +67,7 @@ async function deterministic(buffer: Buffer, isoDate: string): Promise<Buffer> {
         .decode(content)
         .replace(/(<dcterms:(?:created|modified)[^>]*>)[^<]*/g, `$1${isoDate}T00:00:00Z`);
     }
-    out.file(name, content, { date });
+    out.file(name, content, { date, createFolders: false }); // folder otomatis memakai waktu "sekarang"
   }
   return out.generateAsync({ type: "nodebuffer", compression: "DEFLATE" });
 }
